@@ -3,7 +3,7 @@
 WebUI for [tcconfig](https://github.com/thombashi/tcconfig) which wraps
 [TC(Linux Traffic Control)](https://lartc.org/howto/index.html) on Linux servers.
 
-<img width="576" alt="tcui" src="https://github.com/ossrs/tc-ui/assets/2777660/91fb5051-6ace-4c3e-9364-1a2a526be62b">
+<img width="576" alt="tcui" src="https://github.com/user-attachments/assets/50e07751-1ff9-4262-ace9-728b9d0fd77c">
 
 ## Usage
 
