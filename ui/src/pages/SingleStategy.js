@@ -129,10 +129,10 @@ function SingleStategySetting({defaultFilter, defaultStrategy}) {
       return;
     }
     if (!strategy || strategy === 'no') {
-      return alert('请选择策略');
+      return alert('Please Select a Strategy');
     }
     if (delayDistro && Number(delayDistro) > Number(delay)) {
-      return alert(`延迟抖动${delayDistro}不能大于延迟${delay}`);
+      return alert(`Delay Jitter ${delayDistro} cannot be greater than delay {delay}`);
     }
 
     SimpleStrategyStorage.saveFilter(iface, protocol, direction, identifyKey, identifyValue);
@@ -169,7 +169,7 @@ function SingleStategySetting({defaultFilter, defaultStrategy}) {
 
   return <Accordion defaultActiveKey="0">
     <Accordion.Item eventKey="0">
-      <Accordion.Header>网络丢包设置</Accordion.Header>
+      <Accordion.Header>Network Packet Loss Settings</Accordion.Header>
       <Accordion.Body>
         <Form noValidate validated={validated}>
           <Row>
@@ -193,10 +193,10 @@ function SingleStategySetting({defaultFilter, defaultStrategy}) {
             <Col xs='auto'>
               <TcErrorBoundary>
                 <Button variant="primary" type="button" onClick={setupNetwork} disabled={executing}>
-                  设置网络
+                  Apply Policy
                 </Button> &nbsp;
                 <Button variant="primary" type="button" onClick={resetNetwork} disabled={executing}>
-                  重置网络
+                  Reset Policy
                 </Button>
               </TcErrorBoundary>
             </Col>
