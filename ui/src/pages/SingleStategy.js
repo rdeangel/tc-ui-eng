@@ -169,7 +169,7 @@ function SingleStategySetting({defaultFilter, defaultStrategy}) {
 
   return <Accordion defaultActiveKey="0">
     <Accordion.Item eventKey="0">
-      <Accordion.Header>Network Packet Loss Settings</Accordion.Header>
+      <Accordion.Header>Network Traffic Control Strategy</Accordion.Header>
       <Accordion.Body>
         <Form noValidate validated={validated}>
           <Row>
