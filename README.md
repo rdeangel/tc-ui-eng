@@ -3,7 +3,7 @@
 WebUI for [tcconfig](https://github.com/thombashi/tcconfig) which wraps
 [TC(Linux Traffic Control)](https://lartc.org/howto/index.html) on Linux servers.
 
-<img width="576" alt="tcui" src="https://github.com/user-attachments/assets/50e07751-1ff9-4262-ace9-728b9d0fd77c">
+<img width="2000" alt="tcui" src="https://github.com/user-attachments/assets/50e07751-1ff9-4262-ace9-728b9d0fd77c">
 
 ## Usage
 
@@ -13,30 +13,18 @@ Ensure there is `ifb.ko` on your server:
 ls /lib/modules/$(uname -r)/kernel/drivers/net/ifb.ko 2>/dev/null && echo yes || echo no
 ```
 
-Run TC WebUI by docker:
+Run TC WebUI using docker container:
 
 ```bash
 docker run --network=host --privileged -it --restart always -d \
-    --name tc -v /lib/modules:/lib/modules:ro ossrs/tc-ui:1
+    --name tc -v /lib/modules:/lib/modules:ro rdeangel/tc-ui-eng:latest
 ```
+
+you can also use the docker-conpose.yml.
 
 > Note: Only support Linux server, because it requires kernel module ifb and host network mode.
 
-> Note: Please use `registry.cn-hangzhou.aliyuncs.com/ossrs/tc-ui:1` in China.
-
-Open [http://localhost:2023](http://localhost:2023) in browser.
-
-## Usage for Mac
-
-Note that Mac does not support host network, nor ifb, so can only be used for outgoing network:
-
-```bash
-docker run --rm -it --privileged --name tc -p 2023:2023 ossrs/tc-ui:1
-```
-
-Open [http://localhost:2023](http://localhost:2023) in browser.
-
-> Note: Because no host network, you should run command or application in container, for example, ping after setup the delay of network.
+Open [http://localhost:2023](http://localhost:2023) in your browser if running locally or your machine http://ip_address:2023.
 
 ## Concepts of TC
 
