@@ -30,7 +30,7 @@ export default function Scan({appendNewScan, executing, setExecuting, gIfaces}) 
 
   return <Accordion defaultActiveKey="0">
     <Accordion.Item eventKey="0">
-      <Accordion.Header>网络流量扫描</Accordion.Header>
+      <Accordion.Header>Network Traffic Scanning</Accordion.Header>
       <Accordion.Body>
         <Form>
           <IfaceSelector onIfaceChange={setIfaces} appendNewScan={appendNewScan} gIfaces={gIfaces}/>
@@ -40,7 +40,7 @@ export default function Scan({appendNewScan, executing, setExecuting, gIfaces}) 
                 variant="primary" type="button" disabled={executing || selfExecuting}
                 onClick={(e) => scanNetwork(e)}
               >
-                开始扫描
+                Start Scan
               </Button>
             </Col>
             <Col xs='auto'>
@@ -60,15 +60,15 @@ export default function Scan({appendNewScan, executing, setExecuting, gIfaces}) 
                 <thead>
                 <tr>
                   <th>#</th>
-                  <th>网卡</th>
-                  <th>协议</th>
-                  <th>源IP</th>
-                  <td>源端口</td>
-                  <th>目标IP</th>
-                  <th>目标端口</th>
-                  <th>包数目</th>
-                  <th>总字节</th>
-                  <th>方向</th>
+                  <th>Interface</th>
+                  <th>Protocol</th>
+                  <th>Source IP</th>
+                  <td>Source Port</td>
+                  <th>Destination IP</th>
+                  <th>Destination Port</th>
+                  <th>Number of Packets</th>
+                  <th>Total Bytes</th>
+                  <th>Direction</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -76,16 +76,16 @@ export default function Scan({appendNewScan, executing, setExecuting, gIfaces}) 
                   return <tr key={index}>
                     <td>{index + 1}</td>
                     <td>{e?.iface?.name}</td>
-                    <td>{ep.family === 17 ? 'UDP' : (ep.family === 6 ? 'TCP' : (ep.family === 1 ? 'ICMP' : '未知'))}</td>
+                    <td>{ep.family === 17 ? 'UDP' : (ep.family === 6 ? 'TCP' : (ep.family === 1 ? 'ICMP' : 'unknown'))}</td>
                     <td>
-                      {e?.iface?.ipv4 === ep.source ? '(本机)' : ''}&nbsp;
+                      {e?.iface?.ipv4 === ep.source ? '(This machine)' : ''}&nbsp;
                       {ep.source}
                     </td>
                     <td>
                       {ep.sport}
                     </td>
                     <td>
-                      {e?.iface?.ipv4 === ep.dest ? '(本机)' : ''}&nbsp;
+                      {e?.iface?.ipv4 === ep.dest ? '(This machine)' : ''}&nbsp;
                       {ep.dest}
                     </td>
                     <td>{ep.dport}</td>
