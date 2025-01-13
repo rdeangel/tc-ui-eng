@@ -31,7 +31,7 @@ export function TcConfigQuery({iface, forceRefresh}) {
 
   return <Toast>
     <Toast.Header closeButton={false}>
-      <strong className="me-auto">Interface{iface}: Network Settings</strong>
+      <strong className="me-auto">Interface [{iface}]: Network Settings</strong>
       <small>{tcConfig?.cmd}</small> &nbsp; &nbsp;
       {!executing &&
         <div role='button' style={{display: 'inline-block'}} title='Change Flow Name'>
