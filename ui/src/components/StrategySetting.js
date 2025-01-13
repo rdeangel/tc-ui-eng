@@ -7,7 +7,7 @@ export function StrategySetting({
   return <Row>
     <Col xs='auto'>
       <Form.Group className="mb-3">
-        <Form.Label><b>Strategy</b></Form.Label>
+        <Form.Label><b>Policy 1</b></Form.Label>
         <Form.Text> * Set Network Policy Modifiers</Form.Text>
         <InputGroup hasValidation>
           <Form.Select required defaultValue={strategy} onChange={(e) => setStrategy(e.target.value)}>
