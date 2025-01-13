@@ -27,9 +27,9 @@ export default function IfaceSelector({onIfaceChange, appendNewScan, gIfaces}) {
   return <Form.Group className="mb-3">
     <Form.Label><b>Network card selection</b></Form.Label>
     <Form.Text>
-      * Please select the network card to be scanned，only one can be chosen，If needed scan multiple network cards，
+      * Please select the network card to be scanned (Only one can be chosen，if needed scan multiple Interfaces) -> 
     </Form.Text>
-    <Button variant="link" size='sm' onClick={(e) => onAppendNewScan()}>可以点这里</Button>
+    <Button variant="link" size='sm' onClick={(e) => onAppendNewScan()}>Click Here</Button>
     <InputGroup>
       {gIfaces?.map(iface => {
         if (iface?.name?.indexOf('ifb') >= 0) return <React.Fragment key={iface?.name}/>;
