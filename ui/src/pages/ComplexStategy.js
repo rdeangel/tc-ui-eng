@@ -150,7 +150,7 @@ function ComplexStategySetting({defaultFilter, defaultStrategy}) {
 
   return <Accordion defaultActiveKey="0">
     <Accordion.Item eventKey="0">
-      <Accordion.Header>Advanced (2-Level) Network Control Policy</Accordion.Header>
+      <Accordion.Header>Advanced (2-Levels) Network Control Policy</Accordion.Header>
       <Accordion.Body>
         <Form noValidate validated={validated}>
           <Row>
