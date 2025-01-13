@@ -63,7 +63,7 @@ export default function Scan({appendNewScan, executing, setExecuting, gIfaces}) 
                   <th>Interface</th>
                   <th>Protocol</th>
                   <th>Source IP</th>
-                  <td>Source Port</td>
+                  <td>Source Port</th>
                   <th>Destination IP</th>
                   <th>Destination Port</th>
                   <th>Number of Packets</th>
@@ -91,7 +91,7 @@ export default function Scan({appendNewScan, executing, setExecuting, gIfaces}) 
                     <td>{ep.dport}</td>
                     <td>{ep.packets}</td>
                     <td>{ep.bytes}</td>
-                    <td>{ep.source === ep.dest ? '' : (e?.iface?.ipv4 === ep.source ? '出口' : '入口')}</td>
+                    <td>{ep.source === ep.dest ? '' : (e?.iface?.ipv4 === ep.source ? 'IN' : 'OUT')}</td>
                   </tr>;
                 })}
                 </tbody>
