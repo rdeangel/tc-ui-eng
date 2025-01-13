@@ -31,10 +31,10 @@ export function TcConfigQuery({iface, forceRefresh}) {
 
   return <Toast>
     <Toast.Header closeButton={false}>
-      <strong className="me-auto">网卡{iface}: 网络设置</strong>
+      <strong className="me-auto">Interface{iface}: Network Settings</strong>
       <small>{tcConfig?.cmd}</small> &nbsp; &nbsp;
       {!executing &&
-        <div role='button' style={{display: 'inline-block'}} title='更换流名称'>
+        <div role='button' style={{display: 'inline-block'}} title='Change Flow Name'>
           <Icon.ArrowRepeat size={23} onClick={(e) => setSelfRefresh(selfRefresh + 1)}/>
         </div>
       }
