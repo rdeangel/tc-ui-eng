@@ -25,9 +25,9 @@ export default function IfaceSelector({onIfaceChange, appendNewScan, gIfaces}) {
   }, [appendNewScan]);
 
   return <Form.Group className="mb-3">
-    <Form.Label><b>网卡选择</b></Form.Label>
+    <Form.Label><b>Network card selection</b></Form.Label>
     <Form.Text>
-      * 请选择需要扫描的网卡，只能选一个，若需要扫描多个网卡，
+      * Please select the network card to be scanned，only one can be chosen，If needed scan multiple network cards，
     </Form.Text>
     <Button variant="link" size='sm' onClick={(e) => onAppendNewScan()}>可以点这里</Button>
     <InputGroup>
