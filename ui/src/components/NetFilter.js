@@ -11,88 +11,88 @@ export default function NetFilter({gIfaces,
   React.useEffect(() => {
     const nv = identifyKey;
     setIvVisible(nv === "serverPort" || nv === "clientPort" || nv === "clientIp");
-    setIvLabel(nv === "clientIp" ? 'IP' : '端口');
+    setIvLabel(nv === "clientIp" ? 'IP' : 'Port');
   }, [identifyKey, setIvVisible, setIvLabel]);
 
   const updateIdentify = React.useCallback((e) => {
     const nv = e.target.value;
     setIdentifyKey(nv);
     setIvVisible(nv === "serverPort" || nv === "clientPort" || nv === "clientIp");
-    setIvLabel(nv === "clientIp" ? 'IP' : '端口');
+    setIvLabel(nv === "clientIp" ? 'IP' : 'Port');
   }, [setIdentifyKey, setIvLabel, setIvVisible]);
 
   return (
     <Row>
       <Col xs='auto'>
         <Form.Group className="mb-3">
-          <Form.Label><b>网卡</b></Form.Label>
-          <Form.Text> * 对指定网卡生效</Form.Text>
+          <Form.Label><b>Network Interface</b></Form.Label>
+          <Form.Text> * Applied to specified Network Interface</Form.Text>
           <InputGroup hasValidation>
             <Form.Select required defaultValue={iface} onChange={(e) => setIface(e.target.value)}>
-              <option value="">--请选择--</option>
+              <option value="">--Please Select--</option>
               {gIfaces?.map(iface => {
                 if (iface?.name?.indexOf('ifb') >= 0) return <React.Fragment key={iface.name}/>;
                 return <option key={iface.name} value={iface.name}>{iface.name}</option>;
               })}
             </Form.Select>
-            <Form.Control.Feedback type='invalid' tooltip>请选择网卡</Form.Control.Feedback>
+            <Form.Control.Feedback type='invalid' tooltip>Select Network Interface</Form.Control.Feedback>
           </InputGroup>
         </Form.Group>
       </Col>
       <Col xs='auto'>
         <Form.Group className="mb-3">
-          <Form.Label><b>网络协议</b></Form.Label>
-          <Form.Text> * 对指定协议生效</Form.Text>
+          <Form.Label><b>Network Protocol</b></Form.Label>
+          <Form.Text> * Applied to specified Network Interface</Form.Text>
           <InputGroup hasValidation>
             <Form.Select required defaultValue={protocol} onChange={(e) => setProtocol(e.target.value)}>
-              <option value="">--请选择--</option>
+              <option value="">--Please Select--</option>
               <option value="ip">IP</option>
             </Form.Select>
-            <Form.Control.Feedback type='invalid' tooltip>请选择协议</Form.Control.Feedback>
+            <Form.Control.Feedback type='invalid' tooltip>Select a Protocol</Form.Control.Feedback>
           </InputGroup>
         </Form.Group>
       </Col>
       <Col xs='auto'>
         <Form.Group className="mb-3">
-          <Form.Label><b>流量方向</b></Form.Label>
-          <Form.Text> * 流入或流出</Form.Text>
+          <Form.Label><b>Flow Direction</b></Form.Label>
+          <Form.Text> * Inflow or Outflow</Form.Text>
           <InputGroup hasValidation>
             <Form.Select required defaultValue={direction} onChange={(e) => setDirection(e.target.value)}>
-              <option value="">--请选择--</option>
-              <option value="incoming">流入(incoming), 发数据到这个设备</option>
-              <option value="outgoing">流出(outgoing), 从该设备接收数据</option>
+              <option value="">--Please Select--</option>
+              <option value="incoming">Inflow(incoming), Data sent to this interface</option>
+              <option value="outgoing">Outflow(outgoing), Data received by this interface</option>
             </Form.Select>
-            <Form.Control.Feedback type='invalid' tooltip>请选择客户端类型</Form.Control.Feedback>
+            <Form.Control.Feedback type='invalid' tooltip>Select Client Type</Form.Control.Feedback>
           </InputGroup>
         </Form.Group>
       </Col>
       <Col xs='auto'>
         <Form.Group className="mb-3">
-          <Form.Label><b>过滤器</b></Form.Label>
-          <Form.Text> * 按特定标识加弱网</Form.Text>
+          <Form.Label><b>Filter</b></Form.Label>
+          <Form.Text> * Define Network Details to be Modified by TC</Form.Text>
           <InputGroup hasValidation>
             <Form.Select required defaultValue={identifyKey} onChange={updateIdentify}>
-              <option value="">--请选择--</option>
-              <option value="serverPort">按本设备端口</option>n>
-              <option value="clientIp">按对方设备IP</option>n>
-              <option value="clientPort">按对方设备端口</option>
-              <option value="all">匹配所有</option>
+              <option value="">--Please Select--</option>
+              <option value="serverPort">Server Port</option>n>
+              <option value="clientIp">Client IP</option>n>
+              <option value="clientPort">Client Port</option>
+              <option value="all">Match ANY</option>
             </Form.Select>
-            <Form.Control.Feedback type='invalid' tooltip>请选择弱网标识</Form.Control.Feedback>
+            <Form.Control.Feedback type='invalid' tooltip>Please Select Traffic to be Modified by TC</Form.Control.Feedback>
           </InputGroup>
         </Form.Group>
       </Col>
       {ivVisible &&
         <Col xs='auto'>
           <Form.Group className="mb-3">
-            <Form.Label><b>按{ivLabel}</b></Form.Label>
-            <Form.Text> * 请输入{ivLabel}</Form.Text>
+            <Form.Label><b>According to{ivLabel}</b></Form.Label>
+            <Form.Text> * Please Enter{ivLabel}</Form.Text>
             <InputGroup hasValidation>
               <Form.Control
-                required type="input" placeholder={`请输入匹配的${ivLabel}`} defaultValue={identifyValue}
+                required type="input" placeholder={`Enter Match${ivLabel}`} defaultValue={identifyValue}
                 onChange={(e) => setIdentifyValue(e.target.value)}
               />
-              <Form.Control.Feedback type='invalid' tooltip>请输入{ivLabel}</Form.Control.Feedback>
+              <Form.Control.Feedback type='invalid' tooltip>Please Enter{ivLabel}</Form.Control.Feedback>
             </InputGroup>
           </Form.Group>
         </Col>
