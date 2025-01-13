@@ -63,7 +63,7 @@ export default function Scan({appendNewScan, executing, setExecuting, gIfaces}) 
                   <th>Interface</th>
                   <th>Protocol</th>
                   <th>Source IP</th>
-                  <td>Source Port</th>
+                  <th>Source Port</th>
                   <th>Destination IP</th>
                   <th>Destination Port</th>
                   <th>Number of Packets</th>
