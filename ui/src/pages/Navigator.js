@@ -11,8 +11,8 @@ export default function Navigator() {
   React.useEffect(() => {
     const r0 = `${location.pathname}${location.search}`;
     setNavs([
-      {eventKey: '1', to: `/tc/p/SingleStategy`, text: 'Simple Network Policy'},
-      {eventKey: '2', to: `/tc/p/ComplexStategy`, text: 'Advanced Network Policy'},
+      {eventKey: '1', to: `/tc/p/SingleStategy`, text: 'Simple Network Strategy'},
+      {eventKey: '2', to: `/tc/p/ComplexStategy`, text: 'Advanced Network Strategy'},
     ].map(e => {
       if (r0.indexOf(e.to) >= 0) {
         e.className = 'text-light';
