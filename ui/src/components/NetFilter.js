@@ -26,7 +26,7 @@ export default function NetFilter({gIfaces,
       <Col xs='auto'>
         <Form.Group className="mb-3">
           <Form.Label><b>Network Interface</b></Form.Label>
-          <Form.Text> * Where policy will be applied </Form.Text>
+          <Form.Text> * Where the policy will be applied </Form.Text>
           <InputGroup hasValidation>
             <Form.Select required defaultValue={iface} onChange={(e) => setIface(e.target.value)}>
               <option value="">--Please Select--</option>
@@ -42,7 +42,7 @@ export default function NetFilter({gIfaces,
       <Col xs='auto'>
         <Form.Group className="mb-3">
           <Form.Label><b>Network Protocol</b></Form.Label>
-          <Form.Text> * Which Protocol to use for this policy</Form.Text>
+          <Form.Text> * Which Protocol to use</Form.Text>
           <InputGroup hasValidation>
             <Form.Select required defaultValue={protocol} onChange={(e) => setProtocol(e.target.value)}>
               <option value="">--Please Select--</option>
@@ -59,8 +59,8 @@ export default function NetFilter({gIfaces,
           <InputGroup hasValidation>
             <Form.Select required defaultValue={direction} onChange={(e) => setDirection(e.target.value)}>
               <option value="">--Please Select--</option>
-              <option value="incoming">Inflow (incoming), Data received by this interface</option>
-              <option value="outgoing">Outflow (outgoing), Data sent from this interface</option>
+              <option value="incoming">Inflow (incoming) - Data received by this interface</option>
+              <option value="outgoing">Outflow (outgoing) - Data sent from this interface</option>
             </Form.Select>
             <Form.Control.Feedback type='invalid' tooltip>Select Client Type</Form.Control.Feedback>
           </InputGroup>
@@ -69,7 +69,7 @@ export default function NetFilter({gIfaces,
       <Col xs='auto'>
         <Form.Group className="mb-3">
           <Form.Label><b>Filter</b></Form.Label>
-          <Form.Text> * Define Network Details to be Modified by TC</Form.Text>
+          <Form.Text> * Define Network Filter Criteria</Form.Text>
           <InputGroup hasValidation>
             <Form.Select required defaultValue={identifyKey} onChange={updateIdentify}>
               <option value="">--Please Select--</option>
@@ -78,18 +78,18 @@ export default function NetFilter({gIfaces,
               <option value="clientPort">Client Port</option>
               <option value="all">Match ANY</option>
             </Form.Select>
-            <Form.Control.Feedback type='invalid' tooltip>Please Select Traffic to be Modified by TC</Form.Control.Feedback>
+            <Form.Control.Feedback type='invalid' tooltip>Please Select Network Filter Criteria</Form.Control.Feedback>
           </InputGroup>
         </Form.Group>
       </Col>
       {ivVisible &&
         <Col xs='auto'>
           <Form.Group className="mb-3">
-            <Form.Label><b>According to {ivLabel}</b></Form.Label>
+            <Form.Label><b>By {ivLabel}</b></Form.Label>
             <Form.Text> * Please Enter {ivLabel}</Form.Text>
             <InputGroup hasValidation>
               <Form.Control
-                required type="input" placeholder={`Enter Match${ivLabel}`} defaultValue={identifyValue}
+                required type="input" placeholder={`Enter ${ivLabel} to match`} defaultValue={identifyValue}
                 onChange={(e) => setIdentifyValue(e.target.value)}
               />
               <Form.Control.Feedback type='invalid' tooltip>Please Enter {ivLabel}</Form.Control.Feedback>
