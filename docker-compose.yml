@@ -1,0 +1,11 @@
+services:
+  tc-ui-eng:
+    image: tc-ui-eng:latest
+    container_name: tc-ui-eng
+    restart: always
+    tty: true
+    stdin_open: true
+    privileged: true
+    volumes:
+      - '/lib/modules:/lib/modules:ro'
+    network_mode: host
