@@ -7,25 +7,25 @@ export function StrategySetting({
   return <Row>
     <Col xs='auto'>
       <Form.Group className="mb-3">
-        <Form.Label><b>策略</b></Form.Label>
-        <Form.Text> * 设置弱网策略</Form.Text>
+        <Form.Label><b>Strategy</b></Form.Label>
+        <Form.Text> * Set Network Policy Modifiers</Form.Text>
         <InputGroup hasValidation>
           <Form.Select required defaultValue={strategy} onChange={(e) => setStrategy(e.target.value)}>
-            <option value="no">--请选择--</option>
-            <option value="loss">丢包</option>
-            <option value="delay">延迟</option>
-            <option value="rate">限带宽</option>
+            <option value="no">--Please Select--</option>
+            <option value="loss">Packet Loss</option>
+            <option value="delay">Delay</option>
+            <option value="rate">Bandwidth Limited Rate</option>
           </Form.Select>
-          <Form.Control.Feedback type='invalid' tooltip>请选择弱网策略</Form.Control.Feedback>
+          <Form.Control.Feedback type='invalid' tooltip>Please Select Network Policy Modifiers</Form.Control.Feedback>
         </InputGroup>
       </Form.Group>
     </Col>
     {strategy === 'loss' && <Col xs='auto'>
       <Form.Group className="mb-3">
-        <Form.Label><b>丢包率</b></Form.Label>
-        <Form.Text> * 随机丢包率</Form.Text>
+        <Form.Label><b>Packet Loss Rate</b></Form.Label>
+        <Form.Text> * Random Packet Loss Rate</Form.Text>
         <InputGroup className="mb-3">
-          <InputGroup.Text>百分之</InputGroup.Text>
+          <InputGroup.Text>Percentage</InputGroup.Text>
           <Form.Select defaultValue={loss} onChange={(e) => setLoss(e.target.value)}>
             {[1, 5, 10, 15, 20, 25, 30, 35, 40, 50, 60, 70, 80, 90, 95, 100].map((e, index) => {
               return <option value={e} key={index}>{e}</option>;
@@ -37,8 +37,8 @@ export function StrategySetting({
     </Col>}
     {strategy === 'delay' && <Col xs='auto'>
       <Form.Group className="mb-3">
-        <Form.Label><b>延迟</b></Form.Label>
-        <Form.Text> * 网络延迟</Form.Text>
+        <Form.Label><b>Delay</b></Form.Label>
+        <Form.Text> * Network Delay</Form.Text>
         <InputGroup className="mb-3">
           <Form.Select defaultValue={delay} onChange={(e) => setDelay(e.target.value)}>
             {[1, 5, 10, 15, 20, 25, 30, 40, 50, 60, 70, 80, 90, 100, 130, 150, 200, 500, 1000, 3000].map((e, index) => {
@@ -51,11 +51,11 @@ export function StrategySetting({
     </Col>}
     {strategy === 'delay' && <Col xs='auto'>
       <Form.Group className="mb-3">
-        <Form.Label><b>延迟抖动</b></Form.Label>
-        <Form.Text> * 可选, 延迟区间为[{Number(delay)-Number(delayDistro || 0)}, {Number(delay)+Number(delayDistro || 0)}]正态分布</Form.Text>
+        <Form.Label><b>Delay / Jitter</b></Form.Label>
+        <Form.Text> * Optional, the delay interval is [{Number(delay)-Number(delayDistro || 0)}, {Number(delay)+Number(delayDistro || 0)}]Normal Distribution</Form.Text>
         <InputGroup className="mb-3">
           <Form.Control defaultValue={delayDistro}
-            required type="input" placeholder={`请输入抖动的的值`}
+            required type="input" placeholder={`Please enter the value of Dither`}
             onChange={(e) => setDelayDistro(e.target.value)}
           />
           <InputGroup.Text>ms</InputGroup.Text>
@@ -64,8 +64,8 @@ export function StrategySetting({
     </Col>}
     {strategy === 'rate' && <Col xs='auto'>
       <Form.Group className="mb-3">
-        <Form.Label><b>带宽</b></Form.Label>
-        <Form.Text> * 目标带宽</Form.Text>
+        <Form.Label><b>Bandwidth</b></Form.Label>
+        <Form.Text> * Target Bandwidth</Form.Text>
         <InputGroup className="mb-3">
           <Form.Select defaultValue={rate} onChange={(e) => setRate(e.target.value)}>
             {[1, 10, 100, 300, 400, 500, 600, 700, 800, 900, 1000, 1200, 1300, 1400, 1500, 1600, 1700, 1800, 1900, 2000, 2500, 3000, 4000, 5000, 6000, 7000, 8000, 9000, 10000, 15000, 30000, 50000, 100000, 1000000].map((e, index) => {
