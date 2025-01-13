@@ -10,7 +10,7 @@ WebUI for [tcconfig](https://github.com/thombashi/tcconfig) which wraps
 Ensure there is `ifb.ko` on your server:
 
 ```bash
-ls /lib/modules/$(uname -r)/kernel/drivers/net/ifb.ko 2>/dev/null && echo yes || echo no
+ls /lib/modules/$(uname -r)/kernel/drivers/net/ifb.ko* 2>/dev/null && echo yes || echo no
 ```
 
 Run TC WebUI using docker container:
