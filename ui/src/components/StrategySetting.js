@@ -14,7 +14,7 @@ export function StrategySetting({
             <option value="no">--Please Select--</option>
             <option value="loss">Packet Loss</option>
             <option value="delay">Delay</option>
-            <option value="rate">Bandwidth Limited Rate</option>
+            <option value="rate">Bandwidth Rate Limiter</option>
           </Form.Select>
           <Form.Control.Feedback type='invalid' tooltip>Please Select Network Policy Modifiers</Form.Control.Feedback>
         </InputGroup>
