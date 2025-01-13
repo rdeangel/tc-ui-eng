@@ -100,21 +100,21 @@ or [tea](https://github.com/winlinvip/tea#links-tc).
 If want to export the docker image:
 
 ```bash
-docker pull ossrs/tc-ui:1
-docker save ossrs/tc-ui:1 |gzip > tc-ui.tar.gz
+docker pull rdeangel/tc-ui-eng:latest
+docker save rdeangel/tc-ui-eng:latest |gzip > tc-ui-eng.tar.gz
 ```
 
 If want to download the arm64 docker image:
 
 ```bash
-docker pull --platform linux/arm64 ossrs/tc-ui:1
-docker save ossrs/tc-ui:1 |gzip > tc-ui.tar.gz
+docker pull --platform linux/arm64 rdeangel/tc-ui-eng:latest
+docker save rdeangel/tc-ui-eng:latest |gzip > tc-ui-eng.tar.gz
 ```
 
 Load the docker image:
 
 ```bash
-docker load -i tc-ui.tar.gz
+docker load -i tc-ui-eng.tar.gz
 ```
 
 ## HTTP OpenAPI
