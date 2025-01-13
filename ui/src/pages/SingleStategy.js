@@ -169,7 +169,7 @@ function SingleStategySetting({defaultFilter, defaultStrategy}) {
 
   return <Accordion defaultActiveKey="0">
     <Accordion.Item eventKey="0">
-      <Accordion.Header>Simple (1-Level) Network Control Strategy</Accordion.Header>
+      <Accordion.Header>Simple (1-Level) Network Control Policy</Accordion.Header>
       <Accordion.Body>
         <Form noValidate validated={validated}>
           <Row>
