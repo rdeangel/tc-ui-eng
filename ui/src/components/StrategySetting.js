@@ -27,7 +27,7 @@ export function StrategySetting({
         <InputGroup className="mb-3">
           <InputGroup.Text>Percentage</InputGroup.Text>
           <Form.Select defaultValue={loss} onChange={(e) => setLoss(e.target.value)}>
-            {[1, 5, 10, 15, 20, 25, 30, 35, 40, 50, 60, 70, 80, 90, 95, 100].map((e, index) => {
+            {[1, 2, 3, 4, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 60, 65, 70, 75, 80, 85, 90, 95, 96, 97, 98, 99, 100].map((e, index) => {
               return <option value={e} key={index}>{e}</option>;
             })}
           </Form.Select>
@@ -41,7 +41,7 @@ export function StrategySetting({
         <Form.Text> * Network Delay</Form.Text>
         <InputGroup className="mb-3">
           <Form.Select defaultValue={delay} onChange={(e) => setDelay(e.target.value)}>
-            {[1, 5, 10, 15, 20, 25, 30, 40, 50, 60, 70, 80, 90, 100, 130, 150, 200, 500, 1000, 3000].map((e, index) => {
+            {[1, 5, 10, 15, 20, 25, 30, 40, 50, 60, 70, 80, 90, 100, 130, 150, 200, 500, 1000, 1500, 2000, 2500, 3000].map((e, index) => {
               return <option value={e} key={index}>{e}</option>;
             })}
           </Form.Select>
@@ -51,11 +51,11 @@ export function StrategySetting({
     </Col>}
     {strategy === 'delay' && <Col xs='auto'>
       <Form.Group className="mb-3">
-        <Form.Label><b>Delay / Jitter</b></Form.Label>
-        <Form.Text> * Optional, the delay interval is [{Number(delay)-Number(delayDistro || 0)}, {Number(delay)+Number(delayDistro || 0)}]Normal Distribution</Form.Text>
+        <Form.Label><b>Randomize Delay (Jitter)</b></Form.Label>
+        <Form.Text> * Optional, the delay interval is [{Number(delay)-Number(delayDistro || 0)}, {Number(delay)+Number(delayDistro || 0)}] Randomized within Range</Form.Text>
         <InputGroup className="mb-3">
           <Form.Control defaultValue={delayDistro}
-            required type="input" placeholder={`Please enter the value of Dither`}
+            required type="input" placeholder={`Please enter the delay variation range`}
             onChange={(e) => setDelayDistro(e.target.value)}
           />
           <InputGroup.Text>ms</InputGroup.Text>
@@ -69,7 +69,7 @@ export function StrategySetting({
         <InputGroup className="mb-3">
           <Form.Select defaultValue={rate} onChange={(e) => setRate(e.target.value)}>
             {[1, 10, 100, 300, 400, 500, 600, 700, 800, 900, 1000, 1200, 1300, 1400, 1500, 1600, 1700, 1800, 1900, 2000, 2500, 3000, 4000, 5000, 6000, 7000, 8000, 9000, 10000, 15000, 30000, 50000, 100000, 1000000].map((e, index) => {
-              return <option value={e} key={index}>{e ? e : '不限'}</option>;
+              return <option value={e} key={index}>{e ? e : 'Unlimited'}</option>;
             })}
           </Form.Select>
           <InputGroup.Text>Kbps</InputGroup.Text>

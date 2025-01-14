@@ -1,11 +1,16 @@
 services:
   tc-ui-eng:
-    image: tc-ui-eng:latest
+    image: rdeangel/tc-ui-eng:v1.0.11
     container_name: tc-ui-eng
-    restart: always
+    network_mode: host
     tty: true
     stdin_open: true
     privileged: true
-    volumes:
+    environment:
+      - PUID=0
+      - PGID=0
+      - TZ=Europe/London
+      #- FB_DATABASE=/etc/filebrowser/database.db
+    volumes: 
       - '/lib/modules:/lib/modules:ro'
-    network_mode: host
+    restart: unless-stopped

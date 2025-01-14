@@ -19,6 +19,7 @@ import (
 	"strconv"
 	"strings"
 	"time"
+	"regexp"
 )
 
 var isDarwin bool
@@ -673,10 +674,9 @@ func queryIPNetInterfaces(filter func(iface *net.Interface, addr net.Addr) bool)
 
 	var targets []*TcInterface
 	for _, iface := range ifaces {
-		if (iface.Flags & net.FlagPointToPoint) == net.FlagPointToPoint {
+		if (iface.Flags & net.FlagPointToPoint) == net.FlagPointToPoint || regexp.MustCompile(`^ifb.*`).MatchString(iface.Name) {
 			continue
 		}
-
 		addrs, err := iface.Addrs()
 		if err != nil {
 			return nil, errors.Wrapf(err, "query addrs of %v", iface.Name)
@@ -702,9 +702,7 @@ func queryIPNetInterfaces(filter func(iface *net.Interface, addr net.Addr) bool)
 				}
 			}
 		}
-		if ti.IPv4 != nil || ti.IPv6 != nil {
-			targets = append(targets, ti)
-		}
+		targets = append(targets, ti)
 	}
 
 	return targets, nil

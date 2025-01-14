@@ -25,9 +25,9 @@ export default function IfaceSelector({onIfaceChange, appendNewScan, gIfaces}) {
   }, [appendNewScan]);
 
   return <Form.Group className="mb-3">
-    <Form.Label><b>Network Interface Selection </b></Form.Label>
+    <Form.Label><b>Network Interfaces </b></Form.Label>
     <Form.Text>
-      * Please select the network card to be scanned - Only one can be chosen，if you need to scan multiple interfaces 
+      * Please select the network interface to be scanned - Only one can be chosen，if you need to scan multiple interfaces 
     </Form.Text>
     <Button variant="link" size='sm' onClick={(e) => onAppendNewScan()}>Click Here</Button>
     <InputGroup>
