@@ -1,16 +1,19 @@
 services:
   tc-ui-eng:
-    image: rdeangel/tc-ui-eng:v1.0.11
+    image: rdeangel/tc-ui-eng:latest
     container_name: tc-ui-eng
     network_mode: host
     tty: true
     stdin_open: true
     privileged: true
-    environment:
-      - PUID=0
-      - PGID=0
-      - TZ=Europe/London
-      #- FB_DATABASE=/etc/filebrowser/database.db
+    #environment:
+    #  - API_HOST=ubuntu20
+    #  - API_LISTEN=2023
+    #  - UI_HOST=localhost
+    #  - UI_PORT=3001
+    #  - NODE_ENV=development
+    #  - IFACE_FILTER_IPV4=true
+    #  - IFACE_FILTER_IPV6=true
     volumes: 
       - '/lib/modules:/lib/modules:ro'
     restart: unless-stopped
